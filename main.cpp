@@ -6,6 +6,7 @@ int add(int param1, int param2);
 
 int centuryFromYear(int year);
 
+bool checkPalindrome(std::string inputString);
 
 int main()
 {
@@ -25,4 +26,12 @@ int centuryFromYear(int year) {
         return cent+1;
 }
 
+bool checkPalindrome(std::string inputString) {
+    int n=inputString.length();
+    for(int i=0;i<n/2;i++){
+        if(inputString[i]!=inputString[n-1-i])
+            return false;
+    }
+    return true;
+}
 
