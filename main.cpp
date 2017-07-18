@@ -12,6 +12,8 @@ int adjacentElementsProduct(std::vector<int> inputArray);
 
 int shapeArea(int n);
 
+int makeArrayConsecutive2(std::vector<int> statues);
+
 int main()
 {
 	
@@ -54,5 +56,17 @@ int shapeArea(int n) {
     for(int i=0;i<n;i++)
         area += 4*i;
     return area;
+}
+
+int makeArrayConsecutive2(std::vector<int> statues) {
+    int n=statues.size();
+    int result=0, sub;
+    sort(statues.begin(),statues.begin()+n);
+    for(int i=0;i<n-1;i++){
+        sub=statues[i+1]-statues[i];
+        if(sub>1)
+            result += sub-1;
+    }
+    return result;
 }
 
