@@ -10,6 +10,8 @@ bool checkPalindrome(std::string inputString);
 
 int adjacentElementsProduct(std::vector<int> inputArray);
 
+int shapeArea(int n);
+
 int main()
 {
 	
@@ -45,5 +47,12 @@ int adjacentElementsProduct(std::vector<int> inputArray) {
             max=product;
     }
     return max;
+}
+
+int shapeArea(int n) {
+    int area=1;
+    for(int i=0;i<n;i++)
+        area += 4*i;
+    return area;
 }
 
