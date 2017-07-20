@@ -14,6 +14,8 @@ int shapeArea(int n);
 
 int makeArrayConsecutive2(std::vector<int> statues);
 
+bool almostIncreasingSequence(std::vector<int> sequence);
+
 int main()
 {
 	
@@ -68,5 +70,24 @@ int makeArrayConsecutive2(std::vector<int> statues) {
             result += sub-1;
     }
     return result;
+}
+
+bool almostIncreasingSequence(std::vector<int> sequence) {
+    int n=sequence.size();
+    int decre=0;
+    for(int i=0;i<n-1;i++){
+        if(sequence[i]>=sequence[i+1]){
+            decre++;
+            if(i>0 && i<n-2 && sequence[i-1]>=sequence[i+1]){
+                decre++;
+                if(sequence[i]<sequence[i+2])
+                    decre--;
+            }
+                
+        }
+        if(decre>=2)
+            return false;
+    }
+    return true;
 }
 
