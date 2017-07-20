@@ -16,6 +16,8 @@ int makeArrayConsecutive2(std::vector<int> statues);
 
 bool almostIncreasingSequence(std::vector<int> sequence);
 
+int matrixElementsSum(std::vector<std::vector<int>> matrix);
+
 int main()
 {
 	
@@ -89,5 +91,15 @@ bool almostIncreasingSequence(std::vector<int> sequence) {
             return false;
     }
     return true;
+}
+
+int matrixElementsSum(std::vector<std::vector<int>> matrix) {
+    int sum=0;
+    for(int j=0;j<matrix[0].size();j++){
+        for(int i=0;i<matrix.size() && matrix[i][j]!=0;i++){
+            sum += matrix[i][j];
+        }
+    }
+    return sum;
 }
 
