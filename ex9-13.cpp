@@ -36,25 +36,20 @@ int commonCharacterCount(std::string s1, std::string s2) {
     return common;
 }
 
-int commonCharacterCount(std::string s1, std::string s2) {
-    int n1=s1.length();
-    int n2=s2.length();
-    char a='a';
-    int num1,num2,min,common=0;
-    for(a='a';a<='z';a++){
-        num1=0; num2=0;
-        for(int i=0;i<n1;i++){
-            if(s1[i]==a)
-                num1++;
-        }
-        for(int j=0;j<n2;j++){
-            if(s2[j]==a)
-                num2++;
-        }
-        min=(num1<num2)?num1:num2;
-        common+=min;
+bool isLucky(int n) {
+    int chuso[10], sum=0, half=0, index=0;
+    while(n){
+        chuso[index]=n%10;
+        sum+=chuso[index];
+        index++;
+        n=n/10;
     }
-    return common;
+    for(int i=0;i<index/2;i++)
+        half+=chuso[i];
+    if(half*2==sum)
+        return true;
+        else
+            return false;
 }
 
 std::vector<int> sortByHeight(std::vector<int> a) {
