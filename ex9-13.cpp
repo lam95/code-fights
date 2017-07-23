@@ -57,3 +57,22 @@ int commonCharacterCount(std::string s1, std::string s2) {
     return common;
 }
 
+std::vector<int> sortByHeight(std::vector<int> a) {
+    vector<int> pos, result;
+    int n=a.size(), index=0;
+    for(int i=0;i<n;i++){
+        if(a[i]>0)
+            pos.push_back(a[i]);
+    }
+    sort(pos.begin(),pos.end());
+    for(int i=0;i<n;i++){
+        if(a[i]==-1)
+            result.push_back(a[i]);
+        else{
+            result.push_back(pos[index]);
+            index++;
+        }
+    }
+    return result;
+}
+
